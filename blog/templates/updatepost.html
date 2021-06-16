@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}
+
+{% block title %} BlogHome {% endblock title %}
+
+{% block body %}
+{% for i in updatepost %}
+
+<div class="container">
+<form action="/blog/updatepost/{{i.sno}}" method="post">
+    {% csrf_token %}
+     <div class="form-group">
+    <label for="tit">ENTER TITLE</label>
+    <textarea class="form-control" id="tit" name="tit" rows="1" >{{i.title}}</textarea>
+  </div>
+     <div class="form-group">
+    <label for="cont">ENTER CONTENT</label>
+    <textarea class="form-control" id="cont" name="cont" rows="20">{{i.content}}</textarea>
+  </div>
+
+ <button type="submit" class="btn btn-primary">update POST</button>
+
+
+
+</form>
+</div>
+
+{% endfor %}
+
+
+
+
+{% endblock %}

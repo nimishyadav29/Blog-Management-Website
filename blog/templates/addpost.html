@@ -1,0 +1,48 @@
+{% extends 'basic.html' %}
+
+{% block title %} BlogHome {% endblock title %}
+{% block script1 %}
+
+ src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"
+{% endblock script1 %}
+
+{% block script %}
+
+
+
+
+
+      tinymce.init({
+        selector: '#cont'
+      });
+
+
+
+{% endblock script %}
+
+{% block body %}
+<div class="container">
+<form action="/blog/addpost" method="post"  novalidate>
+    {% csrf_token %}
+     <div class="form-group">
+    <label for="tit">ENTER TITLE</label>
+    <textarea class="form-control" id="tit" name="tit" rows="1" required></textarea>
+  </div>
+     <div class="form-group">
+    <label for="cont">ENTER CONTENT</label>
+    <textarea class="form-control" id="cont"name="cont" rows="20" required></textarea>
+  </div>
+
+ <button type="submit" class="btn btn-primary">ADD POST</button>
+
+
+
+</form>
+</div>
+
+
+
+
+
+
+{% endblock %}
